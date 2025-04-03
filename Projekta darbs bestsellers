@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atvērt logu un ierakstīt tekstu</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+import tkinter as tk
 
-    <button id="openLogButton">Atvērt logu</button>
+def open_log_window():
+    # Izveido logu
+    log_window = tk.Toplevel()
+    log_window.title("Ierakstiet tekstu")
+    
+    # Izveido teksta lauku
+    text_box = tk.Text(log_window, height=10, width=40)
+    text_box.pack(padx=20, pady=20)
+    
+    # Aizvēršanas poga
+    close_button = tk.Button(log_window, text="Aizvērt", command=log_window.destroy)
+    close_button.pack(pady=10)
 
-    <!-- Logs -->
-    <div id="logWindow" class="log-window">
-        <div class="log-header">
-            <h2>Ierakstiet tekstu</h2>
-            <button id="closeLogButton">Aizvērt</button>
-        </div>
-        <textarea id="logText" rows="10" cols="30"></textarea>
-    </div>
+# Galvenais logs
+root = tk.Tk()
+root.title("Poga atver logu")
 
-    <script src="script.js"></script>
-</body>
-</html>
+# Poga, lai atvērtu logu
+open_button = tk.Button(root, text="Atvērt logu", command=open_log_window)
+open_button.pack(pady=20)
+
+# Palaist programmu
+root.mainloop()
+
 
